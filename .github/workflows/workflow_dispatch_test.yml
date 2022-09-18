@@ -1,0 +1,22 @@
+name: workflow_dispatch 테스트
+
+on:
+  push:
+    branches:
+      - master
+
+  workflow_dispatch:
+    inputs:
+      isBoolean:
+        type: boolean
+        description: 'workflow_dispatch Boolean'
+        required: false
+        default: false
+        
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ github.event.inputs.isBoolean }}
+  
