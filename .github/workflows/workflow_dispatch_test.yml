@@ -11,6 +11,11 @@ on:
         type: boolean
         description: 'workflow_dispatch Boolean'
         required: false
+      isStockSyncMocking:
+        type: boolean
+        description: '재고연동 가상화 여부'
+        required: false
+        default: false
         
 
 jobs:
