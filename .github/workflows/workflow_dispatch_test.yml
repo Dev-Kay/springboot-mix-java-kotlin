@@ -18,4 +18,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{ github.event.inputs.isBoolean }}
+      - run: echo ${{ github.event.inputs.isStockSyncMocking }}
   
