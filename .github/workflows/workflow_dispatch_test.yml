@@ -23,5 +23,5 @@ jobs:
           STOCK_SYNC_MOCKING: ${{ github.event.inputs.isStockSyncMocking }}
         run: |
           echo ${{ github.event.inputs.isBoolean }}
-          echo "STOCK_SYNC_MOCKING ${STOCK_SYNC_MOCKING:false}"
+          echo "STOCK_SYNC_MOCKING ${STOCK_SYNC_MOCKING:-false}"
   
