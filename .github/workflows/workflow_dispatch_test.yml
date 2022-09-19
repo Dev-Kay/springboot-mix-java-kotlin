@@ -17,9 +17,11 @@ jobs:
   echo:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.event.inputs.isBoolean }}
-      - run: |
-          USER_INPUT=${{ github.event.inputs.isStockSyncMocking }}
-          NAME=${USER_INPUT:-false}
-          echo ${NAME}
+      - env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: catalogyo/fe-api
+          STOCK_SYNC_MOCKING: ${{ github.event.inputs.isStockSyncMocking }}
+        run: |
+          echo ${{ github.event.inputs.isBoolean }}
+          echo "STOCK_SYNC_MOCKING ${STOCK_SYNC_MOCKING:false}"
   
